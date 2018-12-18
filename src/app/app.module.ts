@@ -15,6 +15,11 @@ import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.service';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { SocketIoModule, SocketIoConfig } from 'ng6-socket-io';
+import { environment } from '../environments/environment';
+
+const socketConfig: SocketIoConfig = { url: environment.devApi, options: {} };
+// https://www.npmjs.com/package/ng6-socket-io
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -37,7 +42,8 @@ export function getAuthServiceConfigs() {
     BrowserAnimationsModule,
     SocialLoginModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    SocketIoModule.forRoot(socketConfig)
   ],
   providers: [
     {
@@ -53,4 +59,4 @@ export function getAuthServiceConfigs() {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

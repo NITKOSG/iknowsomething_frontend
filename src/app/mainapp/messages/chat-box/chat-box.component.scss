@@ -1,0 +1,35 @@
+form{
+	margin-bottom: 50px;
+}
+
+input, textarea{
+	border: 1px solid black !important;	
+	padding-left: 3px !important;
+	padding-right: 3px !important;
+}
+
+input:focus, textarea:focus, input.valid, textarea.valid, input.invalid, textarea.invalid{
+	border-bottom: 1px solid black !important;
+	box-shadow: none !important;
+}
+
+
+label{
+	color: black;
+}
+
+input.ng-touched.ng-invalid, textarea.ng-touched.ng-invalid, select.ng-touched.ng-invalid{
+	border: 1px solid red !important;
+}
+
+input.ng-touched.ng-valid, textarea.ng-touched.ng-valid, select.ng-touched.ng-valid{
+	border: 1px solid green !important;
+}
+
+.message-box {
+	border: 1px solid black !important;	
+	padding: 10px;
+	height: 50vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}

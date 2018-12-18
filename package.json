@@ -27,6 +27,7 @@
     "jquery": "^3.3.1",
     "jwt-decode": "^2.2.0",
     "materialize-css": "^1.0.0-rc.2",
+    "ng6-socket-io": "^1.0.3",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
