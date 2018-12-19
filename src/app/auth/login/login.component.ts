@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
+        console.log(userData);
         // if (userData.email.split('@')[1] === 'nitkkr.ac.in') {
         //   this.loginService.login(userData.idToken)
         //     .subscribe((res: response) => {
