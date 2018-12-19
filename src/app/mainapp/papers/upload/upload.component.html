@@ -1,12 +1,12 @@
 <div class="container">
   <h5 class="center-align">Upload question paper</h5>
 
-  <form class="col s12 l6 offset-l3 m8 offset-m2">
+  <form class="col s12 l6 offset-l3 m8 offset-m2" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="row">
 
       <div class="col s12">
         <label>Select Branch</label>
-        <select class="browser-default" ngModel name="branch" required>
+        <select class="browser-default" name="branch" [(ngModel)]="paper.branch" required>
           <optgroup label="B. Tech">
             <option value="1">C.E</option>
             <option value="2">IT</option>
@@ -36,7 +36,7 @@
 
       <div class="col s12">
         <label>Select semester</label>
-        <select class="browser-default" ngModel name="semester" required>
+        <select class="browser-default" name="semester" [(ngModel)]="paper.sem" required>
           <optgroup label="B. Tech">
             <option value="1">1st semester</option>
             <option value="2">2nd semester</option>
@@ -64,26 +64,31 @@
 
       <div class="col s6">
         <label for="name">Subject name</label>
-        <input id="name" type="text" class="validate" ngModel name="name" required>
+        <input id="name" type="text" class="validate" name="name" [(ngModel)]="paper.name" required>
       </div>
 
       <div class="col s6">
         <label for="code">Subject code</label>
-        <input id="code" type="number" class="validate" ngModel name="code" required>
+        <input id="code" type="number" class="validate" name="code" [(ngModel)]="paper.code" required>
       </div>
 
       <div class="col s12">
         <div class="file-field input-field">
           <div class="btn">
             <span>File</span>
-            <input type="file">
+            <input type="file" (change)="readURL($event);">
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" required>
+            <input class="file-path validate" type="text" name="imagePath" required>
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="row" *ngIf="paper.imagePath != ''">
+      <div class="col s12">
+        <img id="preview" [src]="paper.imagePath" class="responsive-img" width="50%"/>
+      </div>
     </div>
 
     <button class="btn z-depth-0 my-btn black-text">Upload</button>

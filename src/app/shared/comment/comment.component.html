@@ -5,7 +5,8 @@
     <p *ngIf="comments.length === 0">There are no comments, be the first one to comment</p>
     <blockquote *ngFor="let comment of comments">
       <h6>{{ comment.content }}</h6>
-      <span class="grey-text">By: {{ comment.userId.username }} 2min ago</span>
+      <span class="grey-text">By: {{ comment.userId.username }} {{timeDifference(currentTime, comment.timestamp)}}
+      </span>
     </blockquote>
 
   </div>
