@@ -10,7 +10,11 @@ import { BlogsServiceClass } from './blogs.service';
 
 
 @NgModule({
-  declarations: [IndividualBlogComponent, BlogsComponent, WriteblogComponent],
+  declarations: [
+    IndividualBlogComponent,
+    BlogsComponent,
+    WriteblogComponent,
+  ],
   imports: [
     CommonModule,
     BlogsRoutingModule,

@@ -30,4 +30,8 @@ export class BlogsServiceClass {
   getBlog(id: string) {
     return this.http.get(this.apiUrl + '/blog/' + id, httpOptions);
   }
+
+  addReaction(id: string, action: string, data) {
+    return this.http.put(this.apiUrl + '/blog/' + id + '?action=' + action, data, httpOptions);
+  }
 }

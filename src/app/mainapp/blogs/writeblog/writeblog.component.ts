@@ -31,7 +31,6 @@ export class WriteblogComponent implements OnInit {
       M.toast({ html: 'Please Enter Something Valid' });
     } else {
       this.blogService.submitBlog({
-        token: sessionStorage.getItem('token'),
         title: this.title,
         content: this.content
       }).subscribe((res: response) => {
