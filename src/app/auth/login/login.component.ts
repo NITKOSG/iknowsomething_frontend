@@ -34,19 +34,28 @@ export class LoginComponent implements OnInit {
 
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-        if (userData.email.split('@')[1] === 'nitkkr.ac.in') {
-          this.loginService.login(userData.idToken)
-            .subscribe((res: response) => {
-              M.toast({ html: 'Logging you in' });
-              window.sessionStorage.setItem('token', res.data.token);
-              this.router.navigate(['auth', 'onboard']);
-            },
-              (err) => {
-                M.toast({ html: err.message });
-              });
-        } else {
-          M.toast({ html: 'Please Login With NIT KKR Domain' });
-        }
+        // if (userData.email.split('@')[1] === 'nitkkr.ac.in') {
+        //   this.loginService.login(userData.idToken)
+        //     .subscribe((res: response) => {
+        //       M.toast({ html: 'Logging you in' });
+        //       window.sessionStorage.setItem('token', res.data.token);
+        //       this.router.navigate(['auth', 'onboard']);
+        //     },
+        //       (err) => {
+        //         M.toast({ html: err.message });
+        //       });
+        // } else {
+        //   M.toast({ html: 'Please Login With NIT KKR Domain' });
+        // }
+        this.loginService.login(userData.idToken)
+        .subscribe((res: response) => {
+          M.toast({ html: 'Logging you in' });
+          window.sessionStorage.setItem('token', res.data.token);
+          this.router.navigate(['auth', 'onboard']);
+        },
+          (err) => {
+            M.toast({ html: err.message });
+          });
       }
     );
   }
