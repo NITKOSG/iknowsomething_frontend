@@ -17,7 +17,7 @@ export class TokenInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${window.sessionStorage.getItem('token')}`
+        Authorization: window.sessionStorage.getItem('token')
       }
     });
 
