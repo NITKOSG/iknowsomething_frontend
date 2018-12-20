@@ -1,16 +1,20 @@
 <div class="container">
+
   <div class="card z-depth-0" *ngIf="blog">
     <div class="card-content">
       <span class="card-title center-align" [innerHTML]="blog.blogTitle"></span>
       <p class="center-align" [innerHTML]="blog.blogContent"></p>
     </div>
+
     <div class="card-action">
       <div class="col s12">
         <app-react (click)="addReaction('LIKE')">favorite</app-react>
         <span class="right">By: <a href="#" class="black-text">{{blog.userId.username}}</a></span>
       </div>
     </div>
+
   </div>
+  
   <div class="divider"></div>
 
   <app-comment [comments]="comments" (addComment)="addReaction('COMMENT', { commentContent: $event })"></app-comment>
